@@ -68,6 +68,7 @@ STORED AS TEXTFILE;
 ```
 
 ### **2.4 Load Data into Hive**
+### If it is regular table data can be loaded like this
 ```sql
 LOAD DATA INPATH '/input/web_server_logs.csv' INTO TABLE web_logs;
 ```
